@@ -53,11 +53,14 @@ export const ColumContainer = styled.div`
   flex-direction: column;
   gap: 0.5rem;
 `
-export const PaycheckDiv = styled(ColumContainer)`
-  
+export const PaycheckPadding = styled(ColumContainer)`
+  padding: 1rem;
+`
+export const HeaderDiv = styled(ColumContainer)`
+  gap: 0.8rem;
 `
 export const OrderContainer = styled.div`
-  flex-grow: 4;
+  
   height: 30rem;
   flex-direction: column;
   align-items: center;
@@ -66,8 +69,6 @@ export const OrderContainer = styled.div`
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
   border: 2px solid ${(props) => props.theme['base-card']};
-
-  gap: 2rem;
 `
 
 export const InputComponent = styled.div`

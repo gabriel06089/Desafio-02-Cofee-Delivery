@@ -13,6 +13,7 @@ import {
   GreyBar,
   PaymentCheck,
   RowContainerBody,
+  PaycheckPadding,
   DivLocation,
   TotalDiv,
   ConfirmButton,
@@ -23,7 +24,7 @@ import {
   DivPaymentOption,
   PaymentMethodContainer,
   HeaderText,
-  PaycheckDiv,
+  HeaderDiv,
 } from './styles'
 import Tradicional from '../../assets/Tradicional.svg'
 import {
@@ -100,64 +101,66 @@ export function Checkout() {
           </PaymentMethodContainer>
         </PaymentComponent>
       </CheckoutContainer>
-      <PaycheckDiv>
-        <HeaderText>Cafés selecionados</HeaderText>
+      <HeaderDiv>
+        <HeaderText>Cafés Selecionados</HeaderText>
         <OrderContainer>
-          <PaymentCheck>
-            <img src={Tradicional} alt="" />
-            <ColumContainer>
-              Expresso Tradicional
-              <RowContainerBase>
-                <DivCounter>
-                  <Minus size={14} weight="bold" />1
-                  <Plus size={14} weight="bold" />
-                </DivCounter>
-                <DivRemove>
-                  <Trash size={16} /> <span>REMOVER</span>
-                </DivRemove>
-              </RowContainerBase>
-            </ColumContainer>
-            <span>R$</span>
-            <span>9,90</span>
-          </PaymentCheck>
-          <GreyBar />
-          <PaymentCheck>
-            <img src={Tradicional} alt="" />
-            <ColumContainer>
-              Expresso Tradicional
-              <RowContainerBase>
-                <DivCounter>
-                  <Minus size={14} weight="bold" />1
-                  <Plus size={14} weight="bold" />
-                </DivCounter>
-                <DivRemove>
-                  <Trash size={16} /> <span>REMOVER</span>
-                </DivRemove>
-              </RowContainerBase>
-            </ColumContainer>
-            <span>R$</span>
-            <span>9,90</span>
-          </PaymentCheck>
-          <GreyBar />
+          <PaycheckPadding>
+            <PaymentCheck>
+              <img src={Tradicional} alt="" />
+              <ColumContainer>
+                Expresso Tradicional
+                <RowContainerBase>
+                  <DivCounter>
+                    <Minus size={14} weight="bold" />1
+                    <Plus size={14} weight="bold" />
+                  </DivCounter>
+                  <DivRemove>
+                    <Trash size={16} /> <span>REMOVER</span>
+                  </DivRemove>
+                </RowContainerBase>
+              </ColumContainer>
+              <span>R$</span>
+              <span>9,90</span>
+            </PaymentCheck>
+            <GreyBar />
+            <PaymentCheck>
+              <img src={Tradicional} alt="" />
+              <ColumContainer>
+                Expresso Tradicional
+                <RowContainerBase>
+                  <DivCounter>
+                    <Minus size={14} weight="bold" />1
+                    <Plus size={14} weight="bold" />
+                  </DivCounter>
+                  <DivRemove>
+                    <Trash size={16} /> <span>REMOVER</span>
+                  </DivRemove>
+                </RowContainerBase>
+              </ColumContainer>
+              <span>R$</span>
+              <span>9,90</span>
+            </PaymentCheck>
+            <GreyBar />
 
-          <TotalDiv>
-            <span>Total de itens</span>
-            <span>R$ 29,70</span>
-          </TotalDiv>
-          <TotalDiv>
-            <span>Entrega</span>
-            <span>R$ 3,50</span>
-          </TotalDiv>
-          <TotalDiv>
-            <h1>Total</h1>
-            <h1>R$ 33,20</h1>
-          </TotalDiv>
+            <TotalDiv>
+              <span>Total de itens</span>
+              <span>R$ 29,70</span>
+            </TotalDiv>
+            <TotalDiv>
+              <span>Entrega</span>
+              <span>R$ 3,50</span>
+            </TotalDiv>
+            <TotalDiv>
+              <h1>Total</h1>
+              <h1>R$ 33,20</h1>
+            </TotalDiv>
 
-          <ConfirmDiv>
-            <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
-          </ConfirmDiv>
+            <ConfirmDiv>
+              <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
+            </ConfirmDiv>
+          </PaycheckPadding>
         </OrderContainer>
-      </PaycheckDiv>
+      </HeaderDiv>
     </RowContainerBody>
   )
 }
