@@ -4,7 +4,7 @@ export const ImgContainer = styled.div`
   flex-direction: row;
   box-sizing: border-box;
   justify-content: space-between;
-  padding: 6rem 10rem;
+  padding: 3rem 10rem;
   gap: 1rem;
   width: 100%;
   img {

@@ -1,5 +1,22 @@
 import styled from 'styled-components'
 
+export const DivCoffees = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 10rem;
+
+  h1 {
+    color: ${(props) => props.theme['base-subtitle']};
+  }
+`
+export const CoffeeGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 2.5rem;
+  margin-top: 5rem;
+`
+
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
