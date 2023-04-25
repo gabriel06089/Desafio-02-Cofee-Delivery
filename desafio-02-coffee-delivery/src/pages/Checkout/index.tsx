@@ -13,7 +13,6 @@ import {
   GreyBar,
   PaymentCheck,
   RowContainerBody,
-  PaycheckPadding,
   DivLocation,
   TotalDiv,
   ConfirmButton,
@@ -23,6 +22,8 @@ import {
   SvgPayment,
   DivPaymentOption,
   PaymentMethodContainer,
+  HeaderText,
+  PaycheckDiv,
 } from './styles'
 import Tradicional from '../../assets/Tradicional.svg'
 import {
@@ -39,6 +40,7 @@ export function Checkout() {
   return (
     <RowContainerBody>
       <CheckoutContainer>
+        <HeaderText>Complete seu pedido</HeaderText>
         <InputComponent>
           <DivLocation>
             <SvgContainer>
@@ -98,8 +100,9 @@ export function Checkout() {
           </PaymentMethodContainer>
         </PaymentComponent>
       </CheckoutContainer>
-      <OrderContainer>
-        <PaycheckPadding>
+      <PaycheckDiv>
+        <HeaderText>Cafés selecionados</HeaderText>
+        <OrderContainer>
           <PaymentCheck>
             <img src={Tradicional} alt="" />
             <ColumContainer>
@@ -136,24 +139,25 @@ export function Checkout() {
             <span>9,90</span>
           </PaymentCheck>
           <GreyBar />
-        </PaycheckPadding>
-        <TotalDiv>
-          <span>Total de itens</span>
-          <span>R$ 29,70</span>
-        </TotalDiv>
-        <TotalDiv>
-          <span>Entrega</span>
-          <span>R$ 3,50</span>
-        </TotalDiv>
-        <TotalDiv>
-          <h1>Total</h1>
-          <h1>R$ 33,20</h1>
-        </TotalDiv>
 
-        <ConfirmDiv>
-          <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
-        </ConfirmDiv>
-      </OrderContainer>
+          <TotalDiv>
+            <span>Total de itens</span>
+            <span>R$ 29,70</span>
+          </TotalDiv>
+          <TotalDiv>
+            <span>Entrega</span>
+            <span>R$ 3,50</span>
+          </TotalDiv>
+          <TotalDiv>
+            <h1>Total</h1>
+            <h1>R$ 33,20</h1>
+          </TotalDiv>
+
+          <ConfirmDiv>
+            <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
+          </ConfirmDiv>
+        </OrderContainer>
+      </PaycheckDiv>
     </RowContainerBody>
   )
 }

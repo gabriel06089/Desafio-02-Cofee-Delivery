@@ -7,6 +7,12 @@ export const CheckoutContainer = styled.div`
   gap: 0.75rem;
   flex-grow: 6;
 `
+export const HeaderText = styled.div`
+  font-family: 'Baloo 2';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+`
 
 export const RowContainerBody = styled.div`
   display: flex;
@@ -47,8 +53,8 @@ export const ColumContainer = styled.div`
   flex-direction: column;
   gap: 0.5rem;
 `
-export const PaycheckPadding = styled(ColumContainer)`
-  padding: 1.5rem;
+export const PaycheckDiv = styled(ColumContainer)`
+  
 `
 export const OrderContainer = styled.div`
   flex-grow: 4;
