@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const DivCoffees = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0rem 10rem;
+  padding: 2rem 5rem;
 
   h1 {
     color: ${(props) => props.theme['base-subtitle']};

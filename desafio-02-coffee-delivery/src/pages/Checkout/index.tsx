@@ -15,27 +15,39 @@ import {
   RowContainerBody,
   PaycheckPadding,
   DivLocation,
-  MapContainer,
   TotalDiv,
   ConfirmButton,
   ConfirmDiv,
   DivInput2,
+  SvgContainer,
+  SvgPayment,
+  DivPaymentOption,
+  PaymentMethodContainer,
 } from './styles'
 import Tradicional from '../../assets/Tradicional.svg'
-import { MapPinLine, Minus, Plus, Trash } from 'phosphor-react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Minus,
+  Money,
+  Plus,
+  Trash,
+} from 'phosphor-react'
 export function Checkout() {
   return (
     <RowContainerBody>
       <CheckoutContainer>
         <InputComponent>
           <DivLocation>
-            <MapContainer>
+            <SvgContainer>
               <MapPinLine size={24} />
               <span>
                 Endereço de entrega
                 <p>Informe o endereço onde deseja recerber o pedido</p>
               </span>
-            </MapContainer>
+            </SvgContainer>
 
             <DivInput>
               <input type="text" placeholder="CEP" />
@@ -57,7 +69,34 @@ export function Checkout() {
           </DivInputChildren2>
         </InputComponent>
 
-        <PaymentComponent> oi</PaymentComponent>
+        <PaymentComponent>
+          <SvgContainer>
+            <SvgPayment>
+              <CurrencyDollar size={24} />
+            </SvgPayment>
+
+            <span>
+              Pagamento
+              <p>
+                O pagamento é feito na entrega. escolha a forma que deseja pagar
+              </p>
+            </span>
+          </SvgContainer>
+          <PaymentMethodContainer>
+            <DivPaymentOption>
+              <CreditCard size={16} />
+              <span>CARTÃO DE CREDITO</span>
+            </DivPaymentOption>
+            <DivPaymentOption>
+              <Bank size={16} />
+              <span>CARTÃO DE DÉBITO</span>
+            </DivPaymentOption>
+            <DivPaymentOption>
+              <Money size={16} />
+              <span>DINHEIRO</span>
+            </DivPaymentOption>
+          </PaymentMethodContainer>
+        </PaymentComponent>
       </CheckoutContainer>
       <OrderContainer>
         <PaycheckPadding>

@@ -11,6 +11,7 @@ export const CheckoutContainer = styled.div`
 export const RowContainerBody = styled.div`
   display: flex;
   padding: 0rem 10rem;
+  padding-bottom: 2rem;
   gap: 2rem;
 `
 
@@ -51,7 +52,7 @@ export const PaycheckPadding = styled(ColumContainer)`
 `
 export const OrderContainer = styled.div`
   flex-grow: 4;
-
+  height: 30rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -65,11 +66,11 @@ export const OrderContainer = styled.div`
 
 export const InputComponent = styled.div`
   background-color: ${(props) => props.theme['base-card']};
-
+  border-radius: 8px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1rem;
+  padding: 2rem;
   input {
     background-color: ${(props) => props.theme['base-input']};
     font-size: 16px;
@@ -91,7 +92,6 @@ export const InputComponent = styled.div`
 `
 
 export const DivInput = styled.div`
-  
   input {
     width: 0 0 40%;
   }
@@ -146,14 +146,6 @@ export const DivInputChildren2 = styled.div`
   }
 `
 
-export const PaymentComponent = styled.div`
-  background-color: ${(props) => props.theme['base-card']};
-
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
 export const DivCounter = styled.div`
   display: flex;
   flex-direction: row;
@@ -201,8 +193,6 @@ export const DivRemove = styled.div`
   }
 `
 export const GreyBar = styled.div`
-  margin-top: 0.725rem;
-  margin-bottom: 0.725rem;
   background-color: ${(props) => props.theme['base-button']};
   height: 2px;
   width: 100%;
@@ -211,7 +201,7 @@ export const DivLocation = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const MapContainer = styled.div`
+export const SvgContainer = styled.div`
   display: flex;
   svg {
     color: ${(props) => props.theme['yellow-dark']};
@@ -274,4 +264,48 @@ export const ConfirmDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`
+export const PaymentComponent = styled.div`
+  background-color: ${(props) => props.theme['base-card']};
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+`
+export const SvgPayment = styled.div`
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
+`
+export const PaymentMethodContainer = styled.div`
+  display: flex;
+
+  gap: 1rem;
+`
+
+export const DivPaymentOption = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  padding-left: 1.063rem;
+  font-size: 16px;
+  line-height: 130%;
+
+  border-radius: 8px;
+
+  width: 11.167rem;
+  height: 3.188rem;
+
+  background: ${(props) => props.theme['base-button']};
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
+  span {
+    padding-left: 0.813rem;
+    font-size: 12px;
+    line-height: 160%;
+    text-align: start;
+  }
 `
