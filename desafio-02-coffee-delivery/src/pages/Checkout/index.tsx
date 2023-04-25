@@ -14,18 +14,37 @@ import {
   PaymentCheck,
   RowContainerBody,
   PaycheckPadding,
+  DivLocation,
+  MapContainer,
+  TotalDiv,
+  ConfirmButton,
+  ConfirmDiv,
+  DivInput2,
 } from './styles'
 import Tradicional from '../../assets/Tradicional.svg'
-import { Minus, Plus, Trash } from 'phosphor-react'
+import { MapPinLine, Minus, Plus, Trash } from 'phosphor-react'
 export function Checkout() {
   return (
     <RowContainerBody>
       <CheckoutContainer>
         <InputComponent>
-          <input type="text" placeholder="CEP" />
-          <DivInput>
+          <DivLocation>
+            <MapContainer>
+              <MapPinLine size={24} />
+              <span>
+                Endereço de entrega
+                <p>Informe o endereço onde deseja recerber o pedido</p>
+              </span>
+            </MapContainer>
+
+            <DivInput>
+              <input type="text" placeholder="CEP" />
+            </DivInput>
+          </DivLocation>
+
+          <DivInput2>
             <input type="text" placeholder="Rua" />
-          </DivInput>
+          </DivInput2>
 
           <DivInputChildren>
             <input type="text" placeholder="Número" />
@@ -56,7 +75,8 @@ export function Checkout() {
                 </DivRemove>
               </RowContainerBase>
             </ColumContainer>
-            <span>R$ 9,90</span>
+            <span>R$</span>
+            <span>9,90</span>
           </PaymentCheck>
           <GreyBar />
           <PaymentCheck>
@@ -73,15 +93,27 @@ export function Checkout() {
                 </DivRemove>
               </RowContainerBase>
             </ColumContainer>
-            <span>R$ 9,90</span>
+            <span>R$</span>
+            <span>9,90</span>
           </PaymentCheck>
           <GreyBar />
         </PaycheckPadding>
+        <TotalDiv>
+          <span>Total de itens</span>
+          <span>R$ 29,70</span>
+        </TotalDiv>
+        <TotalDiv>
+          <span>Entrega</span>
+          <span>R$ 3,50</span>
+        </TotalDiv>
+        <TotalDiv>
+          <h1>Total</h1>
+          <h1>R$ 33,20</h1>
+        </TotalDiv>
 
-        <span>qeq</span>
-        <span>qeq</span>
-        <span>qeq</span>
-        <span>qeq</span>
+        <ConfirmDiv>
+          <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
+        </ConfirmDiv>
       </OrderContainer>
     </RowContainerBody>
   )

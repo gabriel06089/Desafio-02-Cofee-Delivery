@@ -21,12 +21,20 @@ export const RowContainerBase = styled.div`
 `
 
 export const PaymentCheck = styled(RowContainerBase)`
-  padding: 1rem;
+  margin: 1rem;
   img {
     width: 64px;
     height: 64px;
   }
-  span {
+
+  span:nth-child(3) {
+    padding-left: 1rem;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+  }
+  span:nth-child(4) {
+    padding-left: 0;
     font-weight: 700;
     font-size: 16px;
     line-height: 130%;
@@ -43,7 +51,7 @@ export const PaycheckPadding = styled(ColumContainer)`
 `
 export const OrderContainer = styled.div`
   flex-grow: 4;
-  display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -81,7 +89,14 @@ export const InputComponent = styled.div`
     }
   }
 `
+
 export const DivInput = styled.div`
+  
+  input {
+    width: 0 0 40%;
+  }
+`
+export const DivInput2 = styled.div`
   padding: 1rem 0;
   input {
     width: 100%;
@@ -91,23 +106,23 @@ export const DivInputChildren = styled.div`
   gap: 1rem;
   display: flex;
   input:nth-child(1) {
+    flex: 0 0 40%;
     background-color: ${(props) => props.theme['base-input']};
 
     border: 1px solid ${(props) => props.theme['base-button']};
     font-size: 16px;
   }
   input:nth-child(2) {
-    width: 100%;
+    flex: 1 1 auto;
     background-color: ${(props) => props.theme['base-input']};
 
     border: 1px solid ${(props) => props.theme['base-button']};
     font-size: 16px;
-    padding: 10px;
   }
 `
 export const DivInputChildren2 = styled.div`
   display: flex;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   gap: 1rem;
   input:nth-child(1) {
     background-color: ${(props) => props.theme['base-input']};
@@ -165,20 +180,16 @@ export const DivCounter = styled.div`
 export const DivRemove = styled.div`
   display: flex;
   flex-direction: row;
-  display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
 
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 130%;
 
   gap: 0.25rem;
   border-radius: 8px;
-  padding: 0.2rem;
-  width: 5.688rem;
+
+  width: 6.9rem;
   height: 2rem;
 
   background: ${(props) => props.theme['base-button']};
@@ -186,7 +197,6 @@ export const DivRemove = styled.div`
     color: ${(props) => props.theme.purple};
   }
   span {
-    font-weight: 400;
     font-size: 12px;
   }
 `
@@ -196,4 +206,72 @@ export const GreyBar = styled.div`
   background-color: ${(props) => props.theme['base-button']};
   height: 2px;
   width: 100%;
+`
+export const DivLocation = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const MapContainer = styled.div`
+  display: flex;
+  svg {
+    color: ${(props) => props.theme['yellow-dark']};
+  }
+  span {
+    font-size: 16px;
+    line-height: 130%;
+    padding-left: 0.5rem;
+  }
+  p {
+    font-size: 14px;
+    line-height: 130%;
+    padding-bottom: 2rem;
+  }
+`
+export const TotalDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  span {
+    padding-top: 1rem;
+    font-size: 14px;
+    line-height: 130%;
+    color: ${(props) => props.theme['base-text']};
+  }
+
+  h1 {
+    padding-top: 1rem;
+
+    font-size: 20px;
+    line-height: 130%;
+    color: ${(props) => props.theme['base-subtitle']};
+  }
+`
+export const ConfirmButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+
+  gap: 0.25rem;
+  border-radius: 8px;
+
+  width: 90%;
+  height: 2.875rem;
+
+  background-color: ${(props) => props.theme.yellow};
+
+  margin-top: 0;
+  padding: 0.25rem 0.4rem;
+
+  color: ${(props) => props.theme.white};
+`
+export const ConfirmDiv = styled.div`
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
