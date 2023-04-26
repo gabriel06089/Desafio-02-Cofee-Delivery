@@ -25,8 +25,11 @@ import {
   PaymentMethodContainer,
   HeaderText,
   HeaderDiv,
+  GreybarDiv,
+  PaymentText,
 } from './styles'
 import Tradicional from '../../assets/Tradicional.svg'
+import Latte from '../../assets/ImageLatte.svg'
 import {
   Bank,
   CreditCard,
@@ -108,7 +111,9 @@ export function Checkout() {
             <PaymentCheck>
               <img src={Tradicional} alt="" />
               <ColumContainer>
-                Expresso Tradicional
+                <PaymentText>
+                  <span>Expresso Tradicional</span>
+                </PaymentText>
                 <RowContainerBase>
                   <DivCounter>
                     <Minus size={14} weight="bold" />1
@@ -122,11 +127,15 @@ export function Checkout() {
               <span>R$</span>
               <span>9,90</span>
             </PaymentCheck>
-            <GreyBar />
+            <GreybarDiv>
+              <GreyBar />
+            </GreybarDiv>
             <PaymentCheck>
-              <img src={Tradicional} alt="" />
+              <img src={Latte} alt="" />
               <ColumContainer>
-                Expresso Tradicional
+                <PaymentText>
+                  <span>Latte</span>
+                </PaymentText>
                 <RowContainerBase>
                   <DivCounter>
                     <Minus size={14} weight="bold" />1
@@ -138,9 +147,11 @@ export function Checkout() {
                 </RowContainerBase>
               </ColumContainer>
               <span>R$</span>
-              <span>9,90</span>
+              <span>19,80</span>
             </PaymentCheck>
-            <GreyBar />
+            <GreybarDiv>
+              <GreyBar />
+            </GreybarDiv>
 
             <TotalDiv>
               <span>Total de itens</span>

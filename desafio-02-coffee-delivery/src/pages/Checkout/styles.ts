@@ -5,7 +5,6 @@ export const CheckoutContainer = styled.div`
   flex-direction: column;
 
   gap: 0.75rem;
-  flex-grow: 6;
 `
 export const HeaderText = styled.div`
   font-family: 'Baloo 2';
@@ -28,7 +27,8 @@ export const RowContainerBase = styled.div`
 `
 
 export const PaymentCheck = styled(RowContainerBase)`
-  margin: 1rem;
+  margin: 2rem;
+
   img {
     width: 64px;
     height: 64px;
@@ -47,24 +47,26 @@ export const PaymentCheck = styled(RowContainerBase)`
     line-height: 130%;
   }
 `
+export const PaymentText = styled.div`
+  span {
+    margin-left: 0.5rem;
+  }
+`
 
 export const ColumContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 `
 export const PaycheckPadding = styled(ColumContainer)`
-  padding: 1rem;
+  padding: 0rem;
 `
 export const HeaderDiv = styled(ColumContainer)`
   gap: 0.8rem;
 `
 export const OrderContainer = styled.div`
-  
-  height: 30rem;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
   background-color: ${(props) => props.theme['base-card']};
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -165,6 +167,8 @@ export const DivCounter = styled.div`
   font-size: 16px;
   line-height: 130%;
 
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
   gap: 0.5rem;
   border-radius: 8px;
   padding: 0.2rem;
@@ -181,7 +185,7 @@ export const DivRemove = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
+  margin-top: 0.5rem;
   font-size: 16px;
   line-height: 130%;
 
@@ -202,7 +206,13 @@ export const DivRemove = styled.div`
 export const GreyBar = styled.div`
   background-color: ${(props) => props.theme['base-button']};
   height: 2px;
-  width: 100%;
+
+  width: 80%;
+`
+export const GreybarDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 export const DivLocation = styled.div`
   display: flex;
