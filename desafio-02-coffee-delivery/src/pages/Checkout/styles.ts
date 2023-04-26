@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CheckoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  flex-grow: 6;
   gap: 0.75rem;
 `
 export const HeaderText = styled.div`
