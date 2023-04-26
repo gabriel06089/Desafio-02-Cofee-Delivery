@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const DivCoffees = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem 5rem;
+  padding: 2rem 10rem;
 
   h1 {
     color: ${(props) => props.theme['base-subtitle']};
@@ -23,7 +23,6 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 2rem 10rem;
   gap: 1rem;
-  width: 100%;
 
   div {
     display: flex;

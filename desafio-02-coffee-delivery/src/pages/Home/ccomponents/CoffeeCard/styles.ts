@@ -8,6 +8,9 @@ export const DivCoffees = styled.div`
   h1 {
     color: ${(props) => props.theme['base-subtitle']};
   }
+  @media (max-width: 768px) {
+    font-size: 6vw;
+  }
 `
 export const CoffeeGrid = styled.div`
   display: grid;
@@ -15,6 +18,10 @@ export const CoffeeGrid = styled.div`
   grid-template-rows: repeat(5, 1fr);
   gap: 2.5rem;
   margin-top: 5rem;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 `
 export const BackgroundDivCoffees = styled.div`
   display: flex;
