@@ -147,3 +147,29 @@ export const CartButton = styled.div`
     color: ${(props) => props.theme.white};
   }
 `
+export const IncrementButton = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`
+export const DecrementButton = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`

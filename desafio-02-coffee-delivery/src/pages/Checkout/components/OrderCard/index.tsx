@@ -17,7 +17,6 @@ import {
 } from './styles'
 import Tradicional from '../../../../assets/Tradicional.svg'
 import Latte from '../../../../assets/ImageLatte.svg'
-import { NavLink } from 'react-router-dom'
 export function OrderCard() {
   return (
     <OrderContainer>
