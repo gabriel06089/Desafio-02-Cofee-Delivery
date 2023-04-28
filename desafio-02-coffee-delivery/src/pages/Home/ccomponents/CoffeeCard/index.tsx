@@ -40,13 +40,13 @@ export function CoffeeCard() {
                 <span>{coffee.price.toFixed(2)}</span>
               </DivPrice>
               <DivCounter>
-                <IncrementButton onClick={() => handleIncrement(index)}>
-                  <Minus />
-                </IncrementButton>
-                {coffee.quantity}
                 <DecrementButton onClick={() => handleDecrement(index)}>
-                  <Plus />
+                  <Minus size={14} />
                 </DecrementButton>
+                {coffee.quantity}
+                <IncrementButton onClick={() => handleIncrement(index)}>
+                  <Plus size={14} />
+                </IncrementButton>
               </DivCounter>
               <CartButton onClick={() => handleAddToCart(coffee)}>
                 <ShoppingCart size={24} weight="fill" />
