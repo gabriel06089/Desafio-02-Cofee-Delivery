@@ -17,8 +17,15 @@ import { useContext } from 'react'
 import { CoffeeContext } from '../../../../contexts/CartContext'
 
 export function CoffeeCard() {
-  const { coffeeList, handleAddToCart, handleIncrement, handleDecrement } =
-    useContext(CoffeeContext)
+  const {
+    coffeeList,
+    handleAddToCart,
+    handleIncrement,
+    handleDecrement,
+    quantity,
+    orders,
+    total,
+  } = useContext(CoffeeContext)
   return (
     <DivCoffees>
       <h1>Nossos cafés</h1>
@@ -54,6 +61,16 @@ export function CoffeeCard() {
             </CheckoutContainer>
           </BackgroundDivCoffees>
         ))}
+        <div>
+          <h2>Seu Carrinho</h2>
+          {orders.map((order, index) => (
+            <div key={index}>
+              <p>{order.coffee.name}</p>
+              <p>{order.quantityCoffee}</p>
+            </div>
+          ))}
+          <p>Total: {total}</p>
+        </div>
       </CoffeeGrid>
     </DivCoffees>
   )

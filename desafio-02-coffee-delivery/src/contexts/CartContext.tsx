@@ -22,6 +22,7 @@ enum CoffeeTag {
   Especial = 'ESPECIAL',
   Gelado = 'GELADO',
 }
+
 interface Coffee {
   name: string
   price: number
@@ -31,29 +32,48 @@ interface Coffee {
   tag?: CoffeeTag[]
 }
 
+interface Order {
+  coffee: Coffee
+  quantityCoffee: number
+}
+
 type CoffeeContextType = {
   coffeeList: Coffee[]
+  orders: Order[]
+  total: number
+  quantity: number
   handleAddToCart: (coffee: Coffee) => void
   handleIncrement: (index: number) => void
   handleDecrement: (index: number) => void
+
+  calculateTotal: () => number
 }
 
 export const CoffeeContext = createContext<CoffeeContextType>({
   coffeeList: [],
+  orders: [],
+  total: 0,
+  quantity: 0,
   handleAddToCart: () => {},
   handleIncrement: () => {},
   handleDecrement: () => {},
+
+  calculateTotal: () => 0,
 })
+
 type Props = {
   children: React.ReactNode
 }
 
 const CartProvider = ({ children }: Props) => {
+  const [quantity, setQuantity] = useState<number>(0)
+
   const [coffeeList, setCoffeeList] = useState<Coffee[]>([
     {
       name: 'Expresso Tradicional',
       description: 'O tradicional café feito com água quente e grãos moídos',
       price: 9.99,
+
       quantity: 0,
       image: Tradicional,
       tag: [CoffeeTag.Tradicional],
@@ -62,6 +82,7 @@ const CartProvider = ({ children }: Props) => {
       name: 'Expresso Americano',
       description: 'Expresso diluído, menos intenso que o tradicional',
       price: 9.99,
+
       quantity: 0,
       image: Americano,
       tag: [CoffeeTag.Tradicional],
@@ -70,6 +91,7 @@ const CartProvider = ({ children }: Props) => {
       name: 'Expresso Cremoso',
       description: 'Café expresso tradicional com espuma cremosa',
       price: 9.99,
+
       quantity: 0,
       image: Cremoso,
       tag: [CoffeeTag.Tradicional],
@@ -78,6 +100,7 @@ const CartProvider = ({ children }: Props) => {
       name: 'Expresso Gelado',
       description: 'Bebida preparada com café expresso e cubos de gelo',
       price: 9.99,
+
       quantity: 0,
       image: Gelado,
       tag: [CoffeeTag.Tradicional, CoffeeTag.Gelado],
@@ -86,6 +109,7 @@ const CartProvider = ({ children }: Props) => {
       name: 'Café com Leite',
       description: 'Meio a meio de expresso com leite vaporizado',
       price: 9.99,
+
       quantity: 0,
       image: Leite,
       tag: [CoffeeTag.Tradicional, CoffeeTag.AoLeite],
@@ -95,6 +119,7 @@ const CartProvider = ({ children }: Props) => {
       description:
         'Uma dose de café expresso com o dobro de leite e espuma cremosa',
       price: 9.99,
+
       quantity: 0,
       image: Latte,
       tag: [CoffeeTag.Tradicional, CoffeeTag.AoLeite],
@@ -103,6 +128,7 @@ const CartProvider = ({ children }: Props) => {
       name: 'Capuccino',
       description: 'Café expresso com leite vaporizado e espuma de leite',
       price: 9.99,
+
       quantity: 0,
       image: Capuccino,
       tag: [CoffeeTag.Tradicional, CoffeeTag.AoLeite],
@@ -113,6 +139,7 @@ const CartProvider = ({ children }: Props) => {
         'Café expresso com uma pequena quantidade de leite vaporizado e espuma',
       price: 11.99,
       quantity: 0,
+
       image: Macchiato,
       tag: [CoffeeTag.Tradicional, CoffeeTag.AoLeite],
     },
@@ -122,6 +149,7 @@ const CartProvider = ({ children }: Props) => {
         'Café expresso com leite vaporizado, espuma de leite e chocolate em pó',
       price: 12.99,
       quantity: 0,
+
       image: Maccino,
       tag: [CoffeeTag.Tradicional, CoffeeTag.AoLeite],
     },
@@ -129,6 +157,7 @@ const CartProvider = ({ children }: Props) => {
       name: 'Chocolate Quente',
       description: 'Bebida quente à base de leite e chocolate em pó',
       price: 9.99,
+
       quantity: 0,
       image: Chocolate,
       tag: [CoffeeTag.Especial, CoffeeTag.AoLeite],
@@ -139,6 +168,7 @@ const CartProvider = ({ children }: Props) => {
         'Café expresso preparado com açúcar refinado e servido em pequena quantidade',
       price: 13.99,
       quantity: 0,
+
       image: Cubano,
       tag: [CoffeeTag.Especial, CoffeeTag.Alcoolico, CoffeeTag.Gelado],
     },
@@ -147,6 +177,7 @@ const CartProvider = ({ children }: Props) => {
       description: 'Café expresso com leite de coco e xarope de macadâmia',
       price: 15.99,
       quantity: 0,
+
       image: Havaiano,
       tag: [CoffeeTag.Especial],
     },
@@ -155,6 +186,7 @@ const CartProvider = ({ children }: Props) => {
       description: 'Café expresso com cardamomo e espuma de leite',
       price: 14.99,
       quantity: 0,
+
       image: Arabe,
       tag: [CoffeeTag.Especial],
     },
@@ -163,42 +195,73 @@ const CartProvider = ({ children }: Props) => {
       description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
       // eslint-disable-next-line prettier/prettier
     price: 9.90,
+
       quantity: 0,
       image: Irlandes,
       tag: [CoffeeTag.Especial, CoffeeTag.Alcoolico],
     },
   ])
 
-  const handleAddToCart = (coffee: Coffee) => {
-    const index = coffeeList.findIndex((c) => c.name === coffee.name)
+  const [orders, setOrders] = useState<Order[]>([])
 
-    if (index >= 0) {
-      const newCoffeeList = [...coffeeList]
-      newCoffeeList[index].quantity += coffee.quantity
-      setCoffeeList(newCoffeeList)
-    } else {
-      setCoffeeList([...coffeeList, coffee])
-    }
+  const calculateTotal = (): number => {
+    let total = 0
+    orders.forEach((order) => {
+      total += order.quantityCoffee
+    })
+    return total
   }
 
   const handleIncrement = (index: number) => {
     const newCoffeeList = [...coffeeList]
-    newCoffeeList[index].quantity += 1
+    newCoffeeList[index].quantity++
     setCoffeeList(newCoffeeList)
+    setQuantity(quantity + 1)
   }
 
   const handleDecrement = (index: number) => {
     const newCoffeeList = [...coffeeList]
     if (newCoffeeList[index].quantity > 0) {
-      newCoffeeList[index].quantity -= 1
+      newCoffeeList[index].quantity--
       setCoffeeList(newCoffeeList)
+      setQuantity(quantity - 1)
     }
   }
 
+  const handleAddToCart = (coffee: Coffee) => {
+    const index = orders.findIndex((order) => order.coffee.name === coffee.name)
+
+    if (index >= 0) {
+      const updatedOrders = [...orders]
+      updatedOrders[index].quantityCoffee += coffee.quantity
+
+      setOrders(updatedOrders)
+    } else {
+      const newOrder = {
+        coffee,
+        quantityCoffee: coffee.quantity,
+      }
+
+      setOrders([...orders, newOrder])
+    }
+
+    setQuantity(quantity + coffee.quantity)
+    setQuantity(0)
+    coffee.quantity = 0
+  }
+
+  const contextValue: CoffeeContextType = {
+    coffeeList,
+    orders,
+    quantity,
+    total: calculateTotal(),
+    handleAddToCart,
+    handleIncrement,
+    handleDecrement,
+    calculateTotal,
+  }
   return (
-    <CoffeeContext.Provider
-      value={{ coffeeList, handleAddToCart, handleIncrement, handleDecrement }}
-    >
+    <CoffeeContext.Provider value={contextValue}>
       {children}
     </CoffeeContext.Provider>
   )
