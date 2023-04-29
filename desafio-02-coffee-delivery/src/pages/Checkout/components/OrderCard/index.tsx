@@ -17,10 +17,36 @@ import {
 } from './styles'
 
 import { CoffeeContext } from '../../../../contexts/CartContext'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 export function OrderCard() {
-  const { orders, total, handleRemoveFromCart } = useContext(CoffeeContext)
+  const {
+    orders,
+    total,
+    handleRemoveFromCart,
+    handleIncrement,
+    handleDecrement,
+  } = useContext(CoffeeContext)
+
+  const [newOrders, setNewOrders] = useState(orders)
+
+  const handleAdd = (index: number) => {
+    const updatedOrders = [...newOrders]
+    updatedOrders[index].quantityCoffee++
+    setNewOrders(updatedOrders)
+    handleIncrement(index)
+  }
+
+  const handleSubtract = (index: number) => {
+    if (newOrders[index].quantityCoffee === 1) {
+      handleRemoveFromCart(index)
+    } else {
+      const updatedOrders = [...newOrders]
+      updatedOrders[index].quantityCoffee--
+      setNewOrders(updatedOrders)
+      handleDecrement(index)
+    }
+  }
   return (
     <OrderContainer>
       <PaycheckPadding>
@@ -34,9 +60,17 @@ export function OrderCard() {
                 </PaymentText>
                 <RowContainerBase>
                   <DivCounter>
-                    <Minus size={14} weight="bold" />
-                    {order.quantityCoffee}
-                    <Plus size={14} weight="bold" />
+                    <Minus
+                      size={14}
+                      weight="bold"
+                      onClick={() => handleSubtract(index)}
+                    />
+                    {newOrders[index].quantityCoffee}
+                    <Plus
+                      size={14}
+                      weight="bold"
+                      onClick={() => handleAdd(index)}
+                    />
                   </DivCounter>
                   <DivRemove onClick={() => handleRemoveFromCart(index)}>
                     <Trash size={16} /> <span>REMOVER</span>

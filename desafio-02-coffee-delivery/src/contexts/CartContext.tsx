@@ -36,12 +36,23 @@ interface Order {
   coffee: Coffee
   quantityCoffee: number
 }
+interface Address {
+  cep: string
+  street: string
+  number: string
+  complement?: string
+  neighborhood: string
+  city: string
+  state: string
+}
 
 type CoffeeContextType = {
   coffeeList: Coffee[]
   orders: Order[]
   total: number
   quantity: number
+  address: Address
+  setAddress: (address: Address) => void
   handleAddToCart: (coffee: Coffee) => void
   handleIncrement: (index: number) => void
   handleDecrement: (index: number) => void
@@ -54,6 +65,16 @@ export const CoffeeContext = createContext<CoffeeContextType>({
   orders: [],
   total: 0,
   quantity: 0,
+  address: {
+    cep: '',
+    street: '',
+    number: '',
+    complement: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+  },
+  setAddress: () => {},
   handleAddToCart: () => {},
   handleIncrement: () => {},
   handleDecrement: () => {},
@@ -66,6 +87,15 @@ type Props = {
 }
 
 const CartProvider = ({ children }: Props) => {
+  const [address, setAddress] = useState<Address>({
+    cep: '',
+    street: '',
+    number: '',
+    complement: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+  })
   const [quantity, setQuantity] = useState<number>(0)
 
   const [coffeeList, setCoffeeList] = useState<Coffee[]>([
@@ -263,16 +293,22 @@ const CartProvider = ({ children }: Props) => {
     setOrders(updatedOrders)
     setQuantity(quantity - updatedOrders[index].quantityCoffee)
   }
+  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+    setAddress({ ...address, [name]: value })
+  }
 
   const contextValue: CoffeeContextType = {
     coffeeList,
     orders,
-    quantity,
     total: calculateTotal(),
+    quantity,
+    address,
+    setAddress,
     handleAddToCart,
-    handleRemoveFromCart,
     handleIncrement,
     handleDecrement,
+    handleRemoveFromCart,
     calculateTotal,
   }
   return (

@@ -8,7 +8,14 @@ import {
   SvgContainer,
 } from './styles'
 import { MapPinLine } from 'phosphor-react'
+import React, { useContext } from 'react'
+import { CoffeeContext } from '../../../../contexts/CartContext'
 export function InputCard() {
+  const { address, setAddress } = useContext(CoffeeContext)
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+    setAddress({ ...address, [name]: value })
+  }
   return (
     <InputComponent>
       <DivLocation>
