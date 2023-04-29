@@ -37,7 +37,7 @@ export const BaseDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  position: relative;
   border-radius: 8px;
   padding: 0.75rem;
   width: 100%;
@@ -59,4 +59,16 @@ export const CityButton = styled(BaseDiv)`
   svg {
     color: ${(props) => props.theme['purple-dark']};
   }
+`
+export const QuantityCircle = styled.div`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme['yellow-dark']};
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
 `

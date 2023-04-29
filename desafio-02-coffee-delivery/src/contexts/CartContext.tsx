@@ -45,7 +45,7 @@ type CoffeeContextType = {
   handleAddToCart: (coffee: Coffee) => void
   handleIncrement: (index: number) => void
   handleDecrement: (index: number) => void
-
+  handleRemoveFromCart: (index: number) => void
   calculateTotal: () => number
 }
 
@@ -57,7 +57,7 @@ export const CoffeeContext = createContext<CoffeeContextType>({
   handleAddToCart: () => {},
   handleIncrement: () => {},
   handleDecrement: () => {},
-
+  handleRemoveFromCart: () => {},
   calculateTotal: () => 0,
 })
 
@@ -204,7 +204,14 @@ const CartProvider = ({ children }: Props) => {
 
   const [orders, setOrders] = useState<Order[]>([])
 
-  const calculateTotal = (): number => {
+  const calculateTotal = () => {
+    let total = 0
+    orders.forEach((order) => {
+      total += order.coffee.price * order.quantityCoffee
+    })
+    return total
+  }
+  const calculateTotaly = (): number => {
     let total = 0
     orders.forEach((order) => {
       total += order.quantityCoffee
@@ -249,6 +256,13 @@ const CartProvider = ({ children }: Props) => {
     setQuantity(0)
     coffee.quantity = 0
   }
+  const handleRemoveFromCart = (index: number) => {
+    const updatedOrders = [...orders]
+    updatedOrders.splice(index, 1)
+
+    setOrders(updatedOrders)
+    setQuantity(quantity - updatedOrders[index].quantityCoffee)
+  }
 
   const contextValue: CoffeeContextType = {
     coffeeList,
@@ -256,6 +270,7 @@ const CartProvider = ({ children }: Props) => {
     quantity,
     total: calculateTotal(),
     handleAddToCart,
+    handleRemoveFromCart,
     handleIncrement,
     handleDecrement,
     calculateTotal,

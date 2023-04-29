@@ -22,7 +22,6 @@ export function CoffeeCard() {
     handleAddToCart,
     handleIncrement,
     handleDecrement,
-    quantity,
     orders,
     total,
   } = useContext(CoffeeContext)

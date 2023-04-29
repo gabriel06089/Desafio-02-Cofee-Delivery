@@ -15,69 +15,68 @@ import {
   RowContainerBase,
   NavSucess,
 } from './styles'
-import Tradicional from '../../../../assets/Tradicional.svg'
-import Latte from '../../../../assets/ImageLatte.svg'
+
+import { CoffeeContext } from '../../../../contexts/CartContext'
+import { useContext } from 'react'
+
 export function OrderCard() {
+  const { orders, total, handleRemoveFromCart } = useContext(CoffeeContext)
   return (
     <OrderContainer>
       <PaycheckPadding>
-        <PaymentCheck>
-          <img src={Tradicional} alt="" />
-          <ColumContainer>
-            <PaymentText>
-              <span>Expresso Tradicional</span>
-            </PaymentText>
-            <RowContainerBase>
-              <DivCounter>
-                <Minus size={14} weight="bold" />1
-                <Plus size={14} weight="bold" />
-              </DivCounter>
-              <DivRemove>
-                <Trash size={16} /> <span>REMOVER</span>
-              </DivRemove>
-            </RowContainerBase>
-          </ColumContainer>
-          <span>R$</span>
-          <span>9,90</span>
-        </PaymentCheck>
-        <GreybarDiv>
-          <GreyBar />
-        </GreybarDiv>
-        <PaymentCheck>
-          <img src={Latte} alt="" />
-          <ColumContainer>
-            <PaymentText>
-              <span>Latte</span>
-            </PaymentText>
-            <RowContainerBase>
-              <DivCounter>
-                <Minus size={14} weight="bold" />1
-                <Plus size={14} weight="bold" />
-              </DivCounter>
-              <DivRemove>
-                <Trash size={16} /> <span>REMOVER</span>
-              </DivRemove>
-            </RowContainerBase>
-          </ColumContainer>
-          <span>R$</span>
-          <span>19,80</span>
-        </PaymentCheck>
-        <GreybarDiv>
-          <GreyBar />
-        </GreybarDiv>
+        {orders.map((order, index) => (
+          <>
+            <PaymentCheck>
+              <img src={order.coffee.image} alt="" />
+              <ColumContainer>
+                <PaymentText>
+                  <span>{order.coffee.name}</span>
+                </PaymentText>
+                <RowContainerBase>
+                  <DivCounter>
+                    <Minus size={14} weight="bold" />
+                    {order.quantityCoffee}
+                    <Plus size={14} weight="bold" />
+                  </DivCounter>
+                  <DivRemove onClick={() => handleRemoveFromCart(index)}>
+                    <Trash size={16} /> <span>REMOVER</span>
+                  </DivRemove>
+                </RowContainerBase>
+              </ColumContainer>
+              <span>R$</span>
+              <span>{order.coffee.price}</span>
+            </PaymentCheck>
+
+            <GreybarDiv>
+              <GreyBar />
+            </GreybarDiv>
+          </>
+        ))}
 
         <TotalDiv>
           <span>Total de itens</span>
-          <span>R$ 29,70</span>
+          <span>R$ {total.toFixed(2)}</span>
         </TotalDiv>
-        <TotalDiv>
-          <span>Entrega</span>
-          <span>R$ 3,50</span>
-        </TotalDiv>
-        <TotalDiv>
-          <h1>Total</h1>
-          <h1>R$ 33,20</h1>
-        </TotalDiv>
+
+        {total === 0 && (
+          <TotalDiv>
+            <span>Taxa de Entrega</span>
+            <span>R$ {(0).toFixed(2)}</span>
+          </TotalDiv>
+        )}
+        {total > 0 && (
+          <TotalDiv>
+            <span>Taxa de Entrega</span>
+            <span>R$ {(3.5).toFixed(2)}</span>
+          </TotalDiv>
+        )}
+
+        {total === 0 && (
+          <TotalDiv>
+            <h1>Total</h1>
+            <h1>R$ 0,00</h1>
+          </TotalDiv>
+        )}
         <NavSucess to="/sucess" title="Confirmação de pedido">
           <ConfirmDiv>
             <ConfirmButton>
