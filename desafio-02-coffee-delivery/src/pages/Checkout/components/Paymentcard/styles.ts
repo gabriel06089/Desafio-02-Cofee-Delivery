@@ -22,6 +22,22 @@ export const PaymentComponent = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 16px;
+    padding: 8px;
+    transition: background-color 0.2s ease;
+  }
+
+  button.selected {
+    background-color: #333;
+    color: #fff;
+  }
 `
 export const SvgPayment = styled.div`
   svg {
@@ -34,7 +50,7 @@ export const PaymentMethodContainer = styled.div`
   gap: 1rem;
 `
 
-export const DivPaymentOption = styled.div`
+export const DivPaymentOption = styled.div<{ selected: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,8 +63,13 @@ export const DivPaymentOption = styled.div`
 
   width: 11.167rem;
   height: 3.188rem;
-
+  border: 1px solid
+    ${(props) =>
+      props.selected ? props.theme.purple : props.theme['base-button']};
   background: ${(props) => props.theme['base-button']};
+  color: ${(props) => props.theme['base-text']};
+  cursor: pointer;
+  transition: background-color 0.2s ease;
   svg {
     color: ${(props) => props.theme.purple};
   }

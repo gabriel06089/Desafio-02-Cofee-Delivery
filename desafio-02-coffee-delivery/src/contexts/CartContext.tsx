@@ -45,6 +45,7 @@ interface Address {
   city: string
   state: string
 }
+type PaymentOption = 'credit' | 'debit' | 'cash'
 
 type CoffeeContextType = {
   coffeeList: Coffee[]
@@ -58,6 +59,8 @@ type CoffeeContextType = {
   handleDecrement: (index: number) => void
   handleRemoveFromCart: (index: number) => void
   calculateTotal: () => number
+  paymentOption: PaymentOption
+  setPaymentOption: React.Dispatch<React.SetStateAction<PaymentOption>>
 }
 
 export const CoffeeContext = createContext<CoffeeContextType>({
@@ -80,6 +83,8 @@ export const CoffeeContext = createContext<CoffeeContextType>({
   handleDecrement: () => {},
   handleRemoveFromCart: () => {},
   calculateTotal: () => 0,
+  paymentOption: 'credit',
+  setPaymentOption: () => {},
 })
 
 type Props = {
@@ -234,6 +239,13 @@ const CartProvider = ({ children }: Props) => {
 
   const [orders, setOrders] = useState<Order[]>([])
 
+  const [paymentOption, setPaymentOption] = useState<PaymentOption>('credit')
+
+  const value = {
+    paymentOption,
+    setPaymentOption,
+  }
+
   const calculateTotal = () => {
     let total = 0
     orders.forEach((order) => {
@@ -297,6 +309,11 @@ const CartProvider = ({ children }: Props) => {
     const { name, value } = event.target
     setAddress({ ...address, [name]: value })
   }
+  const handlePaymentOptionChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPaymentOption(event.target.value as PaymentOption)
+  }
 
   const contextValue: CoffeeContextType = {
     coffeeList,
@@ -310,6 +327,8 @@ const CartProvider = ({ children }: Props) => {
     handleDecrement,
     handleRemoveFromCart,
     calculateTotal,
+    paymentOption,
+    setPaymentOption,
   }
   return (
     <CoffeeContext.Provider value={contextValue}>
