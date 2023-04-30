@@ -9,8 +9,9 @@ import {
   StyledInputMask,
 } from './styles'
 import { MapPinLine } from 'phosphor-react'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { CoffeeContext } from '../../../../contexts/CartContext'
+import { useSpring, animated } from 'react-spring'
 
 export function InputCard() {
   const { address, setAddress } = useContext(CoffeeContext)
@@ -38,6 +39,11 @@ export function InputCard() {
     const { name, value } = event.target as HTMLInputElement
     setAddress({ ...address, [name]: value })
   }
+  const streetSpring = useSpring({
+    opacity: 1,
+    height: 'auto',
+    from: { opacity: 0, height: 0 },
+  })
   const [options, setOptions] = useState([
     'AC',
     'AL',
@@ -102,14 +108,16 @@ export function InputCard() {
       </DivLocation>
 
       <DivInput2>
-        <StyledInputMask
-          mask="**************************************************"
-          maskChar=" "
-          placeholder="Rua"
-          name="street"
-          value={address.street}
-          onChange={handleInputChange}
-        />
+        <animated.div style={streetSpring}>
+          <StyledInputMask
+            mask="**************************************************"
+            maskChar=" "
+            placeholder="Rua"
+            name="street"
+            value={address.street}
+            onChange={handleInputChange}
+          />
+        </animated.div>
       </DivInput2>
 
       <DivInputChildren>
@@ -131,22 +139,19 @@ export function InputCard() {
         />
       </DivInputChildren>
       <DivInputChildren2>
-        <StyledInputMask
-          maskChar=" "
-          mask="**************************************************"
+        <input
           placeholder="Bairro"
           name="neighborhood"
           value={address.neighborhood}
           onChange={handleInputChange}
+          maxLength={50}
         />
-        <StyledInputMask
-          maskChar=" "
-          mask="***************************************************************"
+        <input
           placeholder="Cidade"
           name="city"
           value={address.city}
           onChange={handleInputChange}
-          pattern="[A-Za-z ]+"
+          maxLength={50}
         />
         <input
           type="text"

@@ -8,6 +8,7 @@ export const InputComponent = styled.div`
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  transition: opacity 0.5s ease;
   input {
     background-color: ${(props) => props.theme['base-input']};
     font-size: 16px;
@@ -39,17 +40,20 @@ export const StyledInputMask = styled(InputMask)`
   }
 `
 export const DivInput = styled.div`
+  transition: opacity 0.5s ease;
   input {
     width: 0 0 40%;
   }
 `
 export const DivInput2 = styled.div`
+  transition: opacity 0.5s ease;
   padding: 1rem 0;
   input {
     width: 100%;
   }
 `
 export const DivInputChildren = styled.div`
+  transition: opacity 0.5s ease;
   gap: 1rem;
   display: flex;
   input:nth-child(1) {
@@ -68,6 +72,7 @@ export const DivInputChildren = styled.div`
   }
 `
 export const DivInputChildren2 = styled.div`
+  transition: opacity 0.5s ease;
   display: flex;
   padding: 1rem 0;
   gap: 1rem;
