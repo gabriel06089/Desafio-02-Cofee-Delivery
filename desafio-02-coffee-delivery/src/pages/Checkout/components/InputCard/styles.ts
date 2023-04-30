@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import InputMask from 'react-input-mask'
+import styled, { keyframes } from 'styled-components'
+
 export const InputComponent = styled.div`
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 8px;
@@ -20,12 +22,22 @@ export const InputComponent = styled.div`
       font-size: 14px;
       line-height: 130%;
     }
+    color: ${(props) => props.theme['base-label']};
+    ::placeholder:not(:empty) {
+      opacity: 0;
+    }
     &:focus {
-      border-color: blue;
+      border-color: ${(props) => props.theme['base-hover']};
     }
   }
 `
-
+export const StyledInputMask = styled(InputMask)`
+  color: ${(props) => props.theme['base-label']};
+  color: ${(props) => props.theme['base-label']};
+  ::placeholder:not(:empty) {
+    opacity: 0;
+  }
+`
 export const DivInput = styled.div`
   input {
     width: 0 0 40%;
@@ -41,7 +53,7 @@ export const DivInputChildren = styled.div`
   gap: 1rem;
   display: flex;
   input:nth-child(1) {
-    flex: 0 0 40%;
+    flex: 0 0 20%;
     background-color: ${(props) => props.theme['base-input']};
 
     border: 1px solid ${(props) => props.theme['base-button']};
