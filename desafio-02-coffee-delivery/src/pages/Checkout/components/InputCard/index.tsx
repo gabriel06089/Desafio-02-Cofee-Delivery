@@ -168,18 +168,6 @@ export function InputCard() {
           ))}
         </datalist>
       </DivInputChildren2>
-      <div>
-        <p>Cep:{address.cep}</p>
-        <p>
-          Rua: {address.street} Numero: {address.number}
-        </p>
-        <p>Complemento: {address.complement}</p>
-        <p>Bairro:{address.neighborhood}</p>
-        <p>
-          Cidade: {address.city} - Estado:{address.state}
-        </p>
-        <p>{address.cep}</p>
-      </div>
     </InputComponent>
   )
 }

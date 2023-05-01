@@ -39,7 +39,6 @@ export function PaymentCard() {
         </span>
       </SvgContainer>
       <PaymentMethodContainer>
-        <div>{paymentOption}</div>
         <DivPaymentOption
           selected={paymentOption === 'credit'}
           onClick={handleCreditCardClick}

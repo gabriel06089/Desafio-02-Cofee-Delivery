@@ -11,11 +11,12 @@ import { CoffeeContext } from '../../contexts/CartContext'
 import { useContext } from 'react'
 
 export function Header() {
-  const { total, orders } = useContext(CoffeeContext)
+  const { total, orders, address } = useContext(CoffeeContext)
   const quantityCoffee = orders.reduce(
     (sum, order) => sum + order.quantityCoffee,
     0,
   )
+
   return (
     <HeaderContainer>
       <span>
@@ -25,10 +26,14 @@ export function Header() {
       </span>
       <nav>
         <div>
-          <CityButton>
-            <MapPin size={24} weight="fill" />
-            <span>Porto Alegre, RS </span>
-          </CityButton>
+          {address.city && address.state && (
+            <CityButton>
+              <MapPin size={24} weight="fill" />
+              <span>
+                {address.city} , {address.state}
+              </span>
+            </CityButton>
+          )}
           {total === 0 ? (
             <></>
           ) : (

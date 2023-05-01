@@ -11,7 +11,10 @@ import {
 } from './style'
 import Entregador from '../../assets/Illustration.svg'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import React, { useContext } from 'react'
+import { CoffeeContext } from '../../contexts/CartContext'
 export function Sucess() {
+  const { address, paymentOption } = useContext(CoffeeContext)
   return (
     <SucessBody>
       <HeaderContainer>
@@ -26,9 +29,15 @@ export function Sucess() {
             </MapDiv>
             <IconTextContainer>
               <p>
-                Entrega em <span>Rua João daniel Martinelli, 102 </span>
+                Entrega em
+                <span>
+                  {' '}
+                  {address.street}, {address.number}
+                </span>
               </p>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <span>
+                {address.neighborhood} - {address.city}, {address.state}
+              </span>
             </IconTextContainer>
           </IconContainer>
           <IconContainer>
@@ -45,8 +54,14 @@ export function Sucess() {
               <CurrencyDollar size={16} />
             </TimeDiv>
             <IconTextContainer>
-              <p>pagamento na entrega</p>
-              <p>Cartão de crédito</p>
+              <p>Pagamento na entrega</p>
+              {paymentOption === 'credit' ? (
+                <p>Cartão de crédito</p>
+              ) : paymentOption === 'debit' ? (
+                <p>Cartão de débito</p>
+              ) : (
+                <p>Prepare o dinheiro, nosso entregador está a caminho!</p>
+              )}
             </IconTextContainer>
           </IconContainer>
         </SucessCard>

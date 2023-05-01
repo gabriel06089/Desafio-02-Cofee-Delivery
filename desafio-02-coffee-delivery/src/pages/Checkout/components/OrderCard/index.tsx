@@ -111,6 +111,12 @@ export function OrderCard() {
             <h1>R$ 0,00</h1>
           </TotalDiv>
         )}
+        {total > 0 && (
+          <TotalDiv>
+            <h1>Total</h1>
+            <h1>R$ {total.toFixed(2)}</h1>
+          </TotalDiv>
+        )}
         <NavSucess to="/sucess" title="Confirmação de pedido">
           <ConfirmDiv>
             <ConfirmButton>
