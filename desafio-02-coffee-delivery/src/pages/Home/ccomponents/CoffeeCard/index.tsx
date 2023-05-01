@@ -55,7 +55,7 @@ export function CoffeeCard() {
                 </IncrementButton>
               </DivCounter>
               <CartButton onClick={() => handleAddToCart(coffee)}>
-                <ShoppingCart size={24} weight="fill" />
+                <ShoppingCart size={22} weight="fill" />
               </CartButton>
             </CheckoutContainer>
           </BackgroundDivCoffees>

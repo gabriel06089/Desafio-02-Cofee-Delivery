@@ -111,6 +111,26 @@ export const CheckoutContainer = styled.div`
   gap: 0.5rem;
   padding: 1.5rem 0rem;
 `
+
+export const CartButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+
+  border-radius: 6px;
+  padding: 0.5rem;
+
+  background: ${(props) => props.theme['purple-dark']};
+
+  svg {
+    color: ${(props) => props.theme.white};
+  }
+  &:hover {
+    background-color: ${(props) => props.theme.purple};
+  }
+`
 export const DivCounter = styled.div`
   display: flex;
   flex-direction: row;
@@ -132,21 +152,6 @@ export const DivCounter = styled.div`
     color: ${(props) => props.theme.purple};
   }
 `
-
-export const CartButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 8px;
-  padding: 0.2rem;
-  width: 100%;
-  background: ${(props) => props.theme['purple-dark']};
-
-  svg {
-    color: ${(props) => props.theme.white};
-  }
-`
 export const IncrementButton = styled.div`
   width: 24px;
   height: 24px;
@@ -158,6 +163,9 @@ export const IncrementButton = styled.div`
   cursor: pointer;
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);
+    svg {
+      color: ${(props) => props.theme['base-title']};
+    }
   }
 `
 export const DecrementButton = styled.div`
@@ -171,5 +179,8 @@ export const DecrementButton = styled.div`
   cursor: pointer;
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);
+    svg {
+      color: ${(props) => props.theme['base-title']};
+    }
   }
 `

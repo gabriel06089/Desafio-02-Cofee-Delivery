@@ -1,11 +1,38 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
+const moveLeft = keyframes`
+   0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  200% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+`
 export const SucessBody = styled.div`
   padding: 0 10rem;
+  animation: ${fadeIn} 1.2s ease-in-out;
 `
 export const SucessContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: ${fadeIn} 3s ease-in-out;
+  img {
+    animation: ${moveLeft} 3s linear;
+  }
 `
 export const HeaderContainer = styled.div`
   display: flex;
@@ -18,11 +45,13 @@ export const HeaderContainer = styled.div`
     line-height: 130%;
 
     color: ${(props) => props.theme['yellow-dark']};
+    animation: ${fadeIn} 2.5s ease-in-out;
   }
   p {
     font-size: 20px;
     line-height: 130%;
     color: ${(props) => props.theme['base-subtitle']};
+    animation: ${fadeIn} 2.9s ease-in-out;
   }
 `
 
@@ -44,6 +73,7 @@ export const SucessCard = styled.div`
       border-box;
 
   padding: 1.5rem 1.5rem;
+  animation: ${fadeIn} 5s ease-in-out;
 `
 export const IconDivBase = styled.div`
   display: flex;
@@ -55,6 +85,7 @@ export const IconDivBase = styled.div`
   height: 32px;
 
   margin-right: 1rem;
+  animation: ${fadeIn} 3s ease-in-out;
 `
 export const MapDiv = styled(IconDivBase)`
   background: ${(props) => props.theme.purple};

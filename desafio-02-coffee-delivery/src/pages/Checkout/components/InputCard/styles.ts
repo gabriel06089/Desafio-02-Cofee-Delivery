@@ -28,21 +28,24 @@ export const InputComponent = styled.div`
       opacity: 0;
     }
     &:focus {
-      border-color: ${(props) => props.theme['base-hover']};
+      border-color: ${(props) => props.theme['yellow-dark']};
     }
   }
 `
 export const StyledInputMask = styled(InputMask)`
   color: ${(props) => props.theme['base-label']};
-  color: ${(props) => props.theme['base-label']};
-  ::placeholder:not(:empty) {
-    opacity: 0;
+
+  &:focus {
+    border-color: ${(props) => props.theme['yellow-dark']};
   }
 `
 export const DivInput = styled.div`
   transition: opacity 0.5s ease;
   input {
     width: 0 0 40%;
+    &:focus {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
 `
 export const DivInput2 = styled.div`
@@ -50,6 +53,9 @@ export const DivInput2 = styled.div`
   padding: 1rem 0;
   input {
     width: 100%;
+    &:focus {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
 `
 export const DivInputChildren = styled.div`
@@ -62,6 +68,9 @@ export const DivInputChildren = styled.div`
 
     border: 1px solid ${(props) => props.theme['base-button']};
     font-size: 16px;
+    &:focus {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
   input:nth-child(2) {
     flex: 1 1 auto;
@@ -69,6 +78,9 @@ export const DivInputChildren = styled.div`
 
     border: 1px solid ${(props) => props.theme['base-button']};
     font-size: 16px;
+    &:focus {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
 `
 export const DivInputChildren2 = styled.div`
@@ -81,6 +93,9 @@ export const DivInputChildren2 = styled.div`
     font-size: 16px;
     padding: 10px;
     border: 1px solid ${(props) => props.theme['base-button']};
+    &:focus {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
   input:nth-child(2) {
     width: 80%;
@@ -88,6 +103,9 @@ export const DivInputChildren2 = styled.div`
     font-size: 16px;
     padding: 10px;
     border: 1px solid ${(props) => props.theme['base-button']};
+    &:focus {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
   input:nth-child(3) {
     width: 20%;
@@ -95,6 +113,9 @@ export const DivInputChildren2 = styled.div`
     font-size: 16px;
     padding: 10px;
     border: 1px solid ${(props) => props.theme['base-button']};
+    &:focus {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
 `
 export const DivLocation = styled.div`

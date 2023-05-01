@@ -9,6 +9,7 @@ export const OrderContainer = styled.div`
   border-bottom-left-radius: 50px;
   border: 2px solid ${(props) => props.theme['base-card']};
 `
+
 export const DivCounter = styled.div`
   display: flex;
   flex-direction: row;
@@ -33,6 +34,38 @@ export const DivCounter = styled.div`
     color: ${(props) => props.theme.purple};
   }
 `
+export const IncrementButton = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    svg {
+      color: ${(props) => props.theme['base-title']};
+    }
+  }
+`
+export const DecrementButton = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    svg {
+      color: ${(props) => props.theme['base-title']};
+    }
+  }
+`
 
 export const DivRemove = styled.div`
   display: flex;
@@ -42,19 +75,24 @@ export const DivRemove = styled.div`
   margin-top: 0.5rem;
   font-size: 16px;
   line-height: 130%;
-
+  padding: 0px 8px;
   gap: 0.25rem;
-  border-radius: 8px;
+  border-radius: 6px;
 
-  width: 6.9rem;
-  height: 2rem;
+  width: 91px;
+  height: 32px;
 
   background: ${(props) => props.theme['base-button']};
+
+  transition: 0.5s;
   svg {
     color: ${(props) => props.theme.purple};
   }
   span {
     font-size: 12px;
+  }
+  &:hover {
+    background-color: ${(props) => props.theme['base-hover']};
   }
 `
 export const GreyBar = styled.div`
@@ -83,6 +121,7 @@ export const TotalDiv = styled.div`
 
   h1 {
     padding-top: 1rem;
+    padding-bottom: 1rem;
 
     font-size: 20px;
     line-height: 130%;
@@ -97,20 +136,24 @@ export const ConfirmButton = styled.div`
   gap: 0.25rem;
   border-radius: 8px;
 
-  width: 90%;
+  width: 92%;
   height: 2.875rem;
 
   background-color: ${(props) => props.theme.yellow};
+  color: ${(props) => props.theme.white};
 
   margin-top: 0;
   padding: 0.25rem 0.4rem;
+  transition: 0.5s;
 
-  color: ${(props) => props.theme.white};
   span {
     font-weight: 700;
     font-size: 14px;
     line-height: 160%;
     text-decoration: none;
+  }
+  &:hover {
+    background-color: ${(props) => props.theme['yellow-dark']};
   }
 `
 export const ConfirmDiv = styled.div`

@@ -14,6 +14,8 @@ import {
   PaymentCheck,
   RowContainerBase,
   NavSucess,
+  IncrementButton,
+  DecrementButton,
 } from './styles'
 
 import { CoffeeContext } from '../../../../contexts/CartContext'
@@ -26,8 +28,14 @@ export function OrderCard() {
     handleRemoveFromCart,
     handleIncrement,
     handleDecrement,
+    address,
+    setAddress,
   } = useContext(CoffeeContext)
 
+  const totalQuantity = orders.reduce(
+    (acc, order) => acc + order.quantityCoffee,
+    0,
+  )
   const [newOrders, setNewOrders] = useState(orders)
 
   const handleAdd = (index: number) => {
@@ -48,83 +56,92 @@ export function OrderCard() {
     }
   }
   return (
-    <OrderContainer>
-      <PaycheckPadding>
-        {orders.map((order, index) => (
-          <>
-            <PaymentCheck>
-              <img src={order.coffee.image} alt="" />
-              <ColumContainer>
-                <PaymentText>
-                  <span>{order.coffee.name}</span>
-                </PaymentText>
-                <RowContainerBase>
-                  <DivCounter>
-                    <Minus
-                      size={14}
-                      weight="bold"
-                      onClick={() => handleSubtract(index)}
-                    />
-                    {newOrders[index].quantityCoffee}
-                    <Plus
-                      size={14}
-                      weight="bold"
-                      onClick={() => handleAdd(index)}
-                    />
-                  </DivCounter>
-                  <DivRemove onClick={() => handleRemoveFromCart(index)}>
-                    <Trash size={16} /> <span>REMOVER</span>
-                  </DivRemove>
-                </RowContainerBase>
-              </ColumContainer>
-              <span>R$</span>
-              <span>{order.coffee.price}</span>
-            </PaymentCheck>
+    <>
+      {totalQuantity > 0 && address.city && address.state && (
+        <OrderContainer>
+          <PaycheckPadding>
+            {orders.map((order, index) => (
+              <>
+                <PaymentCheck>
+                  <img src={order.coffee.image} alt="" />
+                  <ColumContainer>
+                    <PaymentText>
+                      <span>{order.coffee.name}</span>
+                    </PaymentText>
+                    <RowContainerBase>
+                      <DivCounter>
+                        <DecrementButton>
+                          <Minus
+                            size={14}
+                            weight="bold"
+                            onClick={() => handleSubtract(index)}
+                          />
+                        </DecrementButton>
+                        {newOrders[index].quantityCoffee}
+                        <IncrementButton>
+                          <Plus
+                            size={14}
+                            weight="bold"
+                            onClick={() => handleAdd(index)}
+                          />
+                        </IncrementButton>
+                      </DivCounter>
+                      <DivRemove onClick={() => handleRemoveFromCart(index)}>
+                        <Trash size={16} /> <span>REMOVER</span>
+                      </DivRemove>
+                    </RowContainerBase>
+                  </ColumContainer>
+                  <span>R$</span>
+                  <span>{order.coffee.price}</span>
+                </PaymentCheck>
 
-            <GreybarDiv>
-              <GreyBar />
-            </GreybarDiv>
-          </>
-        ))}
+                <GreybarDiv>
+                  <GreyBar />
+                </GreybarDiv>
+              </>
+            ))}
 
-        <TotalDiv>
-          <span>Total de itens</span>
-          <span>R$ {total.toFixed(2)}</span>
-        </TotalDiv>
+            <TotalDiv>
+              <span>Total de itens</span>
+              <span>R$ {total.toFixed(2)}</span>
+            </TotalDiv>
 
-        {total === 0 && (
-          <TotalDiv>
-            <span>Taxa de Entrega</span>
-            <span>R$ {(0).toFixed(2)}</span>
-          </TotalDiv>
-        )}
-        {total > 0 && (
-          <TotalDiv>
-            <span>Taxa de Entrega</span>
-            <span>R$ {(3.5).toFixed(2)}</span>
-          </TotalDiv>
-        )}
+            {total === 0 && (
+              <TotalDiv>
+                <span>Taxa de Entrega</span>
+                <span>R$ {(0).toFixed(2)}</span>
+              </TotalDiv>
+            )}
+            {total > 0 && (
+              <TotalDiv>
+                <span>Taxa de Entrega</span>
+                <span>R$ {(3.5).toFixed(2)}</span>
+              </TotalDiv>
+            )}
 
-        {total === 0 && (
-          <TotalDiv>
-            <h1>Total</h1>
-            <h1>R$ 0,00</h1>
-          </TotalDiv>
-        )}
-        {total > 0 && (
-          <TotalDiv>
-            <h1>Total</h1>
-            <h1>R$ {total.toFixed(2)}</h1>
-          </TotalDiv>
-        )}
-        <NavSucess to="/sucess" title="Confirmação de pedido">
-          <ConfirmDiv>
-            <ConfirmButton>
-              <span>CONFIRMAR PEDIDO</span>
-            </ConfirmButton>
-          </ConfirmDiv>
-        </NavSucess>
-      </PaycheckPadding>
-    </OrderContainer>
+            {total === 0 && (
+              <TotalDiv>
+                <h1>Total</h1>
+                <h1>R$ 0,00</h1>
+              </TotalDiv>
+            )}
+            {total > 0 && (
+              <TotalDiv>
+                <h1>Total</h1>
+                <h1>R$ {total.toFixed(2)}</h1>
+              </TotalDiv>
+            )}
+
+            <NavSucess to="/sucess" title="Confirmação de pedido">
+              <ConfirmDiv>
+                <ConfirmButton>
+                  <span>CONFIRMAR PEDIDO</span>
+                </ConfirmButton>
+              </ConfirmDiv>
+            </NavSucess>
+          </PaycheckPadding>
+        </OrderContainer>
+      )}
+    </>
   )
 }

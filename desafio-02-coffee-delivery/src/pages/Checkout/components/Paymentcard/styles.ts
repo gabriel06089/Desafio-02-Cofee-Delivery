@@ -69,7 +69,8 @@ export const DivPaymentOption = styled.div<{ selected: boolean }>`
   background: ${(props) => props.theme['base-button']};
   color: ${(props) => props.theme['base-text']};
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: border 0.5s ease;
+
   svg {
     color: ${(props) => props.theme.purple};
   }
@@ -78,5 +79,10 @@ export const DivPaymentOption = styled.div<{ selected: boolean }>`
     font-size: 12px;
     line-height: 160%;
     text-align: start;
+  }
+  &:hover {
+    background-color: ${(props) => props.theme['base-hover']};
+    border: none;
+    transition: 0.5s;
   }
 `
