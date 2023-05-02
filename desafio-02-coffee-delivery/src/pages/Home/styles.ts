@@ -13,6 +13,17 @@ export const ImgContainer = styled.div`
     left: calc(50% - 476px / 2 + 322px);
     top: calc(50% - 360px / 2);
   }
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 15rem;
+      height: 11.25rem;
+    }
+  }
 `
 export const DescContainer = styled.div`
   flex-direction: column;
@@ -25,13 +36,20 @@ export const DescContainer = styled.div`
     font-size: 3rem;
     line-height: 130%;
     color: ${(props) => props.theme['base-title']};
+    @media (max-width: 900px) {
+      font-size: 1.5rem;
+    }
   }
   span {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
     font-size: 1.25rem;
     line-height: 130%;
+    @media (max-width: 900px) {
+      font-size: 1rem;
+    }
+  }
+  @media (max-width: 900px) {
+    width: 100%;
+    text-align: center;
   }
 `
 
@@ -39,18 +57,47 @@ export const GridContainer = styled.div`
   padding-top: 4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
   gap: 1rem;
+  @media (max-width: 900px) {
+    padding-top: 1rem;
+    gap: 0.5rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 export const IconTextContainer = styled.div`
   display: flex;
   align-items: center;
+
   span {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
 
     margin-left: 1rem;
+    @media (max-width: 900px) {
+      margin-right: 0rem;
+      margin-left: 3rem;
+    }
+  }
+  @media (max-width: 900px) {
+  }
+`
+export const IconTextContainer2 = styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-left: 1rem;
+    @media (max-width: 900px) {
+      margin-right: 1rem;
+      margin-left: 0rem;
+    }
+  }
+  @media (max-width: 900px) {
+    direction: rtl;
   }
 `
 export const IconBaseContainer = styled.div`
@@ -64,6 +111,7 @@ export const IconBaseContainer = styled.div`
 
 export const CartDiv = styled(IconBaseContainer)`
   background: ${(props) => props.theme['yellow-dark']};
+
   svg {
     color: ${(props) => props.theme.white};
   }

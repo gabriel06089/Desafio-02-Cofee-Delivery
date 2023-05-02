@@ -24,7 +24,11 @@ const moveLeft = keyframes`
 export const SucessBody = styled.div`
   padding: 0 10rem;
   animation: ${fadeIn} 1.2s ease-in-out;
+  @media (max-width: 900px) {
+    padding: 1rem 2rem;
+  }
 `
+
 export const SucessContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -32,6 +36,15 @@ export const SucessContainer = styled.div`
   animation: ${fadeIn} 3s ease-in-out;
   img {
     animation: ${moveLeft} 3s linear;
+    @media (max-width: 900px) {
+      width: 328px;
+      height: 196px;
+    }
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    padding: 2rem 0rem;
+    gap: 1rem;
   }
 `
 export const HeaderContainer = styled.div`
@@ -74,6 +87,9 @@ export const SucessCard = styled.div`
 
   padding: 1.5rem 1.5rem;
   animation: ${fadeIn} 5s ease-in-out;
+  @media (max-width: 900px) {
+    padding: 2rem 2rem;
+  }
 `
 export const IconDivBase = styled.div`
   display: flex;
@@ -110,6 +126,12 @@ export const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  @media (max-width: 900px) {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 0rem;
+  }
 `
 export const IconTextContainer = styled.div`
   display: flex;
@@ -124,5 +146,8 @@ export const IconTextContainer = styled.div`
   p:nth-child(2) {
     font-weight: 700;
     line-height: 130%;
+  }
+  @media (max-width: 900px) {
+    padding: 1rem;
   }
 `

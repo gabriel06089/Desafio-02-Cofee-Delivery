@@ -13,6 +13,11 @@ export const CheckoutContainer = styled.div`
   flex-grow: 6;
   gap: 0.75rem;
   animation: ${fadeIn} 0.8s ease-in-out;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+    align-items: center;
+  }
 `
 export const HeaderText = styled.div`
   font-family: 'Baloo 2';
@@ -21,6 +26,11 @@ export const HeaderText = styled.div`
   line-height: 130%;
   animation: ${fadeIn} 1.5s ease-in-out;
   padding-bottom: 0.8rem;
+  @media (max-width: 900px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `
 export const HeaderText2 = styled.div`
   font-family: 'Baloo 2';
@@ -34,12 +44,19 @@ export const RowContainerBody = styled.div`
   padding: 0rem 10rem;
   padding-bottom: 2rem;
   gap: 2rem;
+  @media (max-width: 900px) {
+    padding: 1rem 2rem;
+    flex-direction: column;
+  }
 `
 
 export const RowContainerBase = styled.div`
   display: flex;
 
   gap: 0.5rem;
+  @media (max-width: 900px) {
+    padding: 1rem 2rem;
+  }
 `
 
 export const ColumContainer = styled.div`

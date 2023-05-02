@@ -6,7 +6,7 @@ import {
   QuantityCircle,
 } from './styles'
 import Logo from '../../assets/Logo.svg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { CoffeeContext } from '../../contexts/CartContext'
 import { useContext } from 'react'
 
@@ -16,6 +16,8 @@ export function Header() {
     (sum, order) => sum + order.quantityCoffee,
     0,
   )
+  const location = useLocation()
+  const isOnSuccessPage = location.pathname === '/sucess'
 
   return (
     <HeaderContainer>
@@ -34,7 +36,7 @@ export function Header() {
               </span>
             </CityButton>
           )}
-          {total === 0 ? (
+          {total === 0 || isOnSuccessPage ? (
             <></>
           ) : (
             <NavLink to="/checkout" title="Checkout">

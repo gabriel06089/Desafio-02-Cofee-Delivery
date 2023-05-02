@@ -31,6 +31,9 @@ export const HeaderContainer = styled.header`
     box-sizing: border-box;
     gap: 1rem;
   }
+  @media (max-width: 900px) {
+    padding: 1rem 2rem;
+  }
 `
 
 export const BaseDiv = styled.div`
@@ -41,6 +44,9 @@ export const BaseDiv = styled.div`
   border-radius: 8px;
   padding: 0.75rem;
   width: 100%;
+  @media (max-width: 900px) {
+    padding: 0.7rem;
+  }
 `
 
 export const CartButton = styled(BaseDiv)`

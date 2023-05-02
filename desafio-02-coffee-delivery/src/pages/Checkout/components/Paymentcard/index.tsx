@@ -10,7 +10,6 @@ import { CoffeeContext } from '../../../../contexts/CartContext'
 import { useContext, useState } from 'react'
 export function PaymentCard() {
   const { paymentOption, setPaymentOption } = useContext(CoffeeContext)
-  const [selectedOption, setSelectedOption] = useState(paymentOption)
 
   const handleCreditCardClick = () => {
     setPaymentOption('credit')
@@ -48,18 +47,18 @@ export function PaymentCard() {
           <span>CARTÃO DE CREDITO</span>
         </DivPaymentOption>
         <DivPaymentOption
-          selected={paymentOption === 'debit'}
-          onClick={handleDebitCardClick}
-        >
-          <Bank size={16} />
-          <span>CARTÃO DE DÉBITO</span>
-        </DivPaymentOption>
-        <DivPaymentOption
           selected={paymentOption === 'cash'}
           onClick={handleCashClick}
         >
           <Money size={16} />
           <span>DINHEIRO</span>
+        </DivPaymentOption>
+        <DivPaymentOption
+          selected={paymentOption === 'debit'}
+          onClick={handleDebitCardClick}
+        >
+          <Bank size={16} />
+          <span>CARTÃO DE DÉBITO</span>
         </DivPaymentOption>
       </PaymentMethodContainer>
     </PaymentComponent>

@@ -5,6 +5,7 @@ import {
   DescContainer,
   GridContainer,
   IconTextContainer,
+  IconTextContainer2,
   ImgContainer,
   TimerDiv,
 } from './styles'
@@ -30,24 +31,24 @@ export function Home() {
               </CartDiv>
               <span> Compra simples e segura</span>
             </IconTextContainer>
-            <IconTextContainer>
+            <IconTextContainer2>
               <BoxDiv>
                 <Package size={20} weight="fill" />
               </BoxDiv>
               <span> Embalagem mantém o café intacto</span>
-            </IconTextContainer>
+            </IconTextContainer2>
             <IconTextContainer>
               <TimerDiv>
                 <Timer size={20} weight="fill" />
               </TimerDiv>
               <span> Entrega rápida e rastreada</span>
             </IconTextContainer>
-            <IconTextContainer>
+            <IconTextContainer2>
               <CoffeeDiv>
                 <Coffee size={20} weight="fill" />
               </CoffeeDiv>
               <span> O café chega fresquinho até você</span>
-            </IconTextContainer>
+            </IconTextContainer2>
           </GridContainer>
         </DescContainer>
         <img src={CoffeePic} alt="" />

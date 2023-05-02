@@ -7,9 +7,16 @@ export const DivCoffees = styled.div`
 
   h1 {
     color: ${(props) => props.theme['base-subtitle']};
+    @media (max-width: 900px) {
+      font-size: 3.5rem;
+      padding-top: 2rem;
+    }
   }
-  @media (max-width: 768px) {
-    font-size: 6vw;
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+    padding: 0rem 2rem;
+    align-items: center;
+    justify-content: center;
   }
 `
 export const CoffeeGrid = styled.div`
@@ -18,8 +25,8 @@ export const CoffeeGrid = styled.div`
   grid-template-rows: repeat(5, 1fr);
   gap: 2.5rem;
   margin-top: 5rem;
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
   }
 `
@@ -57,6 +64,14 @@ export const BackgroundDivCoffees = styled.div`
     font-size: 14px;
     line-height: 130%;
     color: ${(props) => props.theme['base-label']};
+  }
+  @media (max-width: 900px) {
+    margin: 100%;
+    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
   }
 `
 export const RowContainer = styled.div`

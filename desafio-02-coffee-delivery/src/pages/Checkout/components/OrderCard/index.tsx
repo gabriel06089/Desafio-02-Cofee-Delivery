@@ -16,6 +16,7 @@ import {
   NavSucess,
   IncrementButton,
   DecrementButton,
+  ValorText,
 } from './styles'
 
 import { CoffeeContext } from '../../../../contexts/CartContext'
@@ -68,6 +69,7 @@ export function OrderCard() {
                     <PaymentText>
                       <span>{order.coffee.name}</span>
                     </PaymentText>
+
                     <RowContainerBase>
                       <DivCounter>
                         <DecrementButton>
@@ -91,8 +93,10 @@ export function OrderCard() {
                       </DivRemove>
                     </RowContainerBase>
                   </ColumContainer>
-                  <span>R$</span>
-                  <span>{order.coffee.price}</span>
+                  <ValorText>
+                    <span>R$ </span>
+                    <span>{order.coffee.price}</span>
+                  </ValorText>
                 </PaymentCheck>
 
                 <GreybarDiv>

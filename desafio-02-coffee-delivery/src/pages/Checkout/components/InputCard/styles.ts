@@ -31,6 +31,9 @@ export const InputComponent = styled.div`
       border-color: ${(props) => props.theme['yellow-dark']};
     }
   }
+  @media (max-width: 900px) {
+    padding: 1rem;
+  }
 `
 export const StyledInputMask = styled(InputMask)`
   color: ${(props) => props.theme['base-label']};
@@ -45,6 +48,9 @@ export const DivInput = styled.div`
     width: 0 0 40%;
     &:focus {
       border-color: ${(props) => props.theme['yellow-dark']};
+    }
+    @media (max-width: 900px) {
+      width: 100%;
     }
   }
 `
@@ -71,6 +77,10 @@ export const DivInputChildren = styled.div`
     &:focus {
       border-color: ${(props) => props.theme['yellow-dark']};
     }
+    @media (max-width: 900px) {
+      flex: auto;
+      width: 50%;
+    }
   }
   input:nth-child(2) {
     flex: 1 1 auto;
@@ -80,6 +90,10 @@ export const DivInputChildren = styled.div`
     font-size: 16px;
     &:focus {
       border-color: ${(props) => props.theme['yellow-dark']};
+    }
+    @media (max-width: 900px) {
+      width: 50%;
+      flex: auto;
     }
   }
 `
@@ -96,6 +110,9 @@ export const DivInputChildren2 = styled.div`
     &:focus {
       border-color: ${(props) => props.theme['yellow-dark']};
     }
+    @media (max-width: 900px) {
+      width: 40%;
+    }
   }
   input:nth-child(2) {
     width: 80%;
@@ -105,6 +122,9 @@ export const DivInputChildren2 = styled.div`
     border: 1px solid ${(props) => props.theme['base-button']};
     &:focus {
       border-color: ${(props) => props.theme['yellow-dark']};
+    }
+    @media (max-width: 900px) {
+      width: 40%;
     }
   }
   input:nth-child(3) {
@@ -116,6 +136,11 @@ export const DivInputChildren2 = styled.div`
     &:focus {
       border-color: ${(props) => props.theme['yellow-dark']};
     }
+    @media (max-width: 900px) {
+      width: 25%;
+    }
+  }
+  @media (max-width: 900px) {
   }
 `
 export const DivLocation = styled.div`
@@ -136,6 +161,14 @@ export const SvgContainer = styled.div`
     font-size: 14px;
     line-height: 130%;
     padding-bottom: 2rem;
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+
+    padding: 0;
   }
 `
 export const TotalDiv = styled.div`

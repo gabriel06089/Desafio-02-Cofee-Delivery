@@ -14,6 +14,12 @@ export const SvgContainer = styled.div`
     line-height: 130%;
     padding-bottom: 2rem;
   }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 0;
+  }
 `
 export const PaymentComponent = styled.div`
   background-color: ${(props) => props.theme['base-card']};
@@ -34,9 +40,9 @@ export const PaymentComponent = styled.div`
     transition: background-color 0.2s ease;
   }
 
-  button.selected {
-    background-color: #333;
-    color: #fff;
+  @media (max-width: 900px) {
+    padding: 1rem;
+    width: 100%;
   }
 `
 export const SvgPayment = styled.div`
@@ -48,6 +54,9 @@ export const PaymentMethodContainer = styled.div`
   display: flex;
 
   gap: 1rem;
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
 `
 
 export const DivPaymentOption = styled.div<{ selected: boolean }>`
@@ -57,8 +66,6 @@ export const DivPaymentOption = styled.div<{ selected: boolean }>`
   justify-content: start;
   padding-left: 1.063rem;
   font-size: 16px;
-  line-height: 130%;
-
   border-radius: 8px;
 
   width: 11.167rem;
@@ -66,7 +73,8 @@ export const DivPaymentOption = styled.div<{ selected: boolean }>`
   border: 1px solid
     ${(props) =>
       props.selected ? props.theme.purple : props.theme['base-button']};
-  background: ${(props) => props.theme['base-button']};
+  background: ${(props) =>
+    props.selected ? props.theme['purple-light'] : props.theme['base-button']};
   color: ${(props) => props.theme['base-text']};
   cursor: pointer;
   transition: border 0.5s ease;
@@ -77,12 +85,25 @@ export const DivPaymentOption = styled.div<{ selected: boolean }>`
   span {
     padding-left: 0.813rem;
     font-size: 12px;
-    line-height: 160%;
+
     text-align: start;
+    @media (max-width: 900px) {
+      text-align: center;
+      padding-left: 0;
+      justify-content: center;
+    }
   }
   &:hover {
     background-color: ${(props) => props.theme['base-hover']};
     border: none;
     transition: 0.5s;
+  }
+  @media (max-width: 900px) {
+    width: 5rem;
+    height: 5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
   }
 `

@@ -34,6 +34,7 @@ export const DivCounter = styled.div`
     color: ${(props) => props.theme.purple};
   }
 `
+
 export const IncrementButton = styled.div`
   width: 24px;
   height: 24px;
@@ -166,6 +167,9 @@ export const RowContainerBase = styled.div`
   display: flex;
 
   gap: 0.5rem;
+  @media (max-width: 900px) {
+    gap: 0.5rem;
+  }
 `
 export const PaymentCheck = styled(RowContainerBase)`
   margin: 2rem;
@@ -173,22 +177,22 @@ export const PaymentCheck = styled(RowContainerBase)`
   img {
     width: 64px;
     height: 64px;
+    @media (max-width: 900px) {
+      width: 54px;
+      height: 54px;
+    }
   }
 
-  span:nth-child(3) {
-    padding-left: 1rem;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 130%;
-  }
-  span:nth-child(4) {
-    padding-left: 0;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 130%;
+  @media (max-width: 900px) {
+    padding: 0rem;
+    margin: auto;
+    padding: 1.5rem 0rem;
   }
 `
 export const PaymentText = styled.div`
+  display: flex;
+  justify-content: space-between;
+
   span {
     margin-left: 0.5rem;
   }
@@ -202,4 +206,23 @@ export const PaycheckPadding = styled(ColumContainer)`
 `
 export const NavSucess = styled(NavLink)`
   text-decoration: none;
+`
+export const ValorText = styled.div`
+  display: flex;
+  align-items: flex-start;
+  span:nth-child(1) {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+  }
+  span:nth-child(2) {
+    padding-left: 1rem;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+    @media (max-width: 900px) {
+      padding-left: 0.3rem;
+    }
+  }
 `

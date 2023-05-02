@@ -60,16 +60,6 @@ export function CoffeeCard() {
             </CheckoutContainer>
           </BackgroundDivCoffees>
         ))}
-        <div>
-          <h2>Seu Carrinho</h2>
-          {orders.map((order, index) => (
-            <div key={index}>
-              <p>{order.coffee.name}</p>
-              <p>{order.quantityCoffee}</p>
-            </div>
-          ))}
-          <p>Total: {total}</p>
-        </div>
       </CoffeeGrid>
     </DivCoffees>
   )
