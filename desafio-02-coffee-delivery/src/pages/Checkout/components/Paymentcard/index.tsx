@@ -7,7 +7,7 @@ import {
   PaymentComponent,
 } from './styles'
 import { CoffeeContext } from '../../../../contexts/CartContext'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 export function PaymentCard() {
   const { paymentOption, setPaymentOption } = useContext(CoffeeContext)
 

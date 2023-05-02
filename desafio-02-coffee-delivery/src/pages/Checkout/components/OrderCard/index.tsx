@@ -30,7 +30,6 @@ export function OrderCard() {
     handleIncrement,
     handleDecrement,
     address,
-    setAddress,
   } = useContext(CoffeeContext)
 
   const totalQuantity = orders.reduce(

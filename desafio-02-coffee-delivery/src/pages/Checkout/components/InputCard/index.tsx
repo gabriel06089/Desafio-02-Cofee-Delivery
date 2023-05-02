@@ -9,7 +9,7 @@ import {
   StyledInputMask,
 } from './styles'
 import { MapPinLine } from 'phosphor-react'
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CoffeeContext } from '../../../../contexts/CartContext'
 import { useSpring, animated } from 'react-spring'
 
@@ -44,7 +44,7 @@ export function InputCard() {
     height: 'auto',
     from: { opacity: 0, height: 0 },
   })
-  const [options, setOptions] = useState([
+  const [options] = useState([
     'AC',
     'AL',
     'AM',

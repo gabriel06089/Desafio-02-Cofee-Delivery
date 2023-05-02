@@ -1,5 +1,5 @@
 import InputMask from 'react-input-mask'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 export const InputComponent = styled.div`
   background-color: ${(props) => props.theme['base-card']};

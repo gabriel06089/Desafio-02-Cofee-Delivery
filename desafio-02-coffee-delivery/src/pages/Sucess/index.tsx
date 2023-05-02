@@ -11,7 +11,7 @@ import {
 } from './style'
 import Entregador from '../../assets/Illustration.svg'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { CoffeeContext } from '../../contexts/CartContext'
 export function Sucess() {
   const { address, paymentOption } = useContext(CoffeeContext)

@@ -17,14 +17,8 @@ import { useContext } from 'react'
 import { CoffeeContext } from '../../../../contexts/CartContext'
 
 export function CoffeeCard() {
-  const {
-    coffeeList,
-    handleAddToCart,
-    handleIncrement,
-    handleDecrement,
-    orders,
-    total,
-  } = useContext(CoffeeContext)
+  const { coffeeList, handleAddToCart, handleIncrement, handleDecrement } =
+    useContext(CoffeeContext)
   return (
     <DivCoffees>
       <h1>Nossos cafés</h1>

@@ -241,22 +241,10 @@ const CartProvider = ({ children }: Props) => {
 
   const [paymentOption, setPaymentOption] = useState<PaymentOption>('credit')
 
-  const value = {
-    paymentOption,
-    setPaymentOption,
-  }
-
   const calculateTotal = () => {
     let total = 0
     orders.forEach((order) => {
       total += order.coffee.price * order.quantityCoffee
-    })
-    return total
-  }
-  const calculateTotaly = (): number => {
-    let total = 0
-    orders.forEach((order) => {
-      total += order.quantityCoffee
     })
     return total
   }
@@ -304,15 +292,6 @@ const CartProvider = ({ children }: Props) => {
 
     setOrders(updatedOrders)
     setQuantity(quantity - updatedOrders[index].quantityCoffee)
-  }
-  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target
-    setAddress({ ...address, [name]: value })
-  }
-  const handlePaymentOptionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    setPaymentOption(event.target.value as PaymentOption)
   }
 
   const contextValue: CoffeeContextType = {
