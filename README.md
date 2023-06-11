@@ -4,4 +4,7 @@ Desafio 02, trilha ignite React, Cofee Delivery
 
 [![Total Lines](https://img.shields.io/tokei/lines/github/gabriel06089/Desafio-02-Cofee-Delivery)](https://github.com/gabriel06089/Desafio-02-Cofee-Delivery)
 
+![Language](https://img.shields.io/github/languages/top/gabriel06089/Desafio-02-Cofee-Delivery)
+
+
 
